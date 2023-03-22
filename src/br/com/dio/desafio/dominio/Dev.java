@@ -4,8 +4,14 @@ import java.util.*;
 
 public class Dev {
     private String nome;
+    private int idDev;
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
+
+    public Dev(String nome, int idDev) {
+        this.nome = nome;
+        this.idDev = idDev;
+    }
 
     public void inscreverBootcamp(Bootcamp bootcamp){
         this.conteudosInscritos.addAll(bootcamp.getConteudos());
@@ -31,12 +37,9 @@ public class Dev {
         }
         return soma;
 
-        /*return this.conteudosConcluidos
-                .stream()
-                .mapToDouble(Conteudo::calcularXp)
-                .sum();*/
     }
 
+ 
 
     public String getNome() {
         return nome;
@@ -44,6 +47,14 @@ public class Dev {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public int getIdDev() {
+        return idDev;
+    }
+
+    public void setIdDev(int idDev) {
+        this.idDev = idDev;
     }
 
     public Set<Conteudo> getConteudosInscritos() {
@@ -74,4 +85,14 @@ public class Dev {
     public int hashCode() {
         return Objects.hash(nome, conteudosInscritos, conteudosConcluidos);
     }
+
+    
+
+    @Override
+    public String toString() {
+        return "Dev [nome=" + nome + ", idDev=" + idDev + ", conteudosInscritos=" + conteudosInscritos
+                + ", conteudosConcluidos=" + conteudosConcluidos + "]";
+    }
+
+   
 }
